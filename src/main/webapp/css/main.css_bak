@@ -1,0 +1,383 @@
+@import url(http://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+    
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.clearfix:after {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+/*font-family: 'NanumSquare', sans-serif;*/
+
+/* -------------------- typography & commons -------------------- */
+
+h1,
+h2,
+h3,
+h4,
+body {
+    font-family: 'NanumSquare', sans-serif;
+}
+
+/* -------------------- LAYOUT -------------------- */
+
+.container{
+    width:1500px;
+    margin:0 auto;
+}
+
+/* -------------------- HEADER -------------------- */
+
+header {
+    background: linear-gradient(white 120px, rgba(20, 20, 20, 0.65) 55px);
+    overflow: hidden;
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index: 9999;
+}
+
+.menuWrap{
+    display:flex;
+    justify-content: space-between;
+}
+
+.logo a{
+    width: 260px;
+    height: 51px;
+    background: url(../images/puble_img/logo.png) no-repeat center center / 100% 100%;
+    text-indent: -9999em;
+    display: inline-block;
+    margin-top:30px;
+}
+
+.menuWrap > nav > ul{
+    display:flex;
+    width:1033px;
+    justify-content: space-between;
+    position: relative;
+    white-space: nowrap;
+    font-size:25px;
+    line-height: 120px;
+}
+
+.menuWrap > nav > ul > li:hover{
+    color: #00bbb0;
+}
+
+.menuWrap > nav > ul > li > ul{
+    position: absolute;
+    top:calc(100% + 21px)
+}
+
+.menuWrap > nav > ul > li > ul > li{
+    line-height: 48px;
+}
+.menuWrap > nav > ul > li > ul a{
+    text-decoration:none;
+    color: #fff;
+    padding-bottom:8px;
+    font-size: 23px;
+}
+.menuWrap > nav > ul > li > ul a:hover{
+    color: #00bbb0;
+    border-bottom:1px solid #00bbb0;
+}
+
+
+/* -------------------- MAIN01 -------------------- */
+
+.main01{
+    height: 935px;
+    background: url(../images/puble_img/main01.png) no-repeat center center / cover;
+    box-sizing:border-box;
+    margin:120px auto 0;
+    position: relative;
+}
+.main01:after{
+    content:'';
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background: rgba(0,0,0,0.25);
+    z-index: 1;
+}
+.main01 > .textBox{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    color: #fff;
+    z-index: 2;
+    text-align:center;
+}
+
+.main01 .mainDesc01{
+    font-size:56px;
+    margin-bottom:29px;
+}
+
+.main01 .mainDesc02{
+    font-size:45px;
+}
+
+/* -------------------- MAIN02 -------------------- */
+
+.main02 .tabMenu{
+    display:flex;
+}
+.main02 .tabMenu .work{
+    position: relative;
+}
+.main02 .tabMenu .work:hover{
+    background: #fff;
+    cursor:auto;
+}
+.main02 .tabMenu .work img{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+}
+.main02 .tabMenu > span{
+    width: 20%;
+    display:inline-block;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 82px;
+    font-size:23px;
+    cursor:pointer;
+}
+.main02 .tabMenu > span:hover{
+    background: #00bbb0;
+    color: #fff;
+}
+.main02 .textBox02{
+    padding:85px 0 64px;
+    text-align:center;
+    line-height: 32px;
+}
+.main02 .textBox02 .mainDesc03{
+    font-size:24px;
+}
+.main02 .textBox02 .mainDesc03 span{
+    color: #00bbb0;
+}
+
+.main02 .mainContentBox{
+    background: #f0f0f0;
+    padding:71px 0 141px;
+}
+.main02 .mainContentBox > div > div{
+    width: 1313px;
+    margin:0 auto 66px;
+    display:flex;
+    justify-content: space-between;
+    text-align:center;
+}
+.main02 .mainContentBox > div > div > div > div{
+    height:401px;
+    width: 584px;
+    margin-bottom:45px;
+    cursor:pointer;
+    position: relative;
+}
+.main02 .mainContentBox > div > div > div > div:hover::after{
+    content: '자세히 보기';
+    position: absolute;
+    background: rgba(0,0,0,.6);
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    color: #fff;
+    line-height: 401px;
+    font-size: 30px;
+}
+.main02 .mainContentBox .contentImg1{
+    background: url(../images/puble_img/contentImg1.png) no-repeat center center / 100% 100%;
+}
+.main02 .mainContentBox .contentImg2{
+    background: url(../images/puble_img/contentImg2.png) no-repeat center center / 100% 100%;
+}
+.main02 .mainContentBox .contentImg3{
+    background: url(../images/puble_img/contentImg3.png) no-repeat center center / 100% 100%;
+}
+.main02 .mainContentBox .contentImg4{
+    background: url(../images/puble_img/contentImg4.png) no-repeat center center / 100% 100%;
+}
+.main02 .mainContentBox h3{
+    font-size:30px;
+    font-weight:bold;
+}
+.main02 .mainContentBox p{
+    font-size:26px;
+    color: #a9a9a9;
+    margin-top:17px;
+}
+
+/* -------------------- FOOTER -------------------- */
+footer{
+    background: #384249;
+    padding: 48px 0 45px;
+    white-space: nowrap;
+}
+footer > div{
+    width: 1300px;
+    margin:0 auto;
+    color: #fff;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+footer > div > div{
+    margin-left:56px;
+}
+footer > div > div a,footer > div > div p{
+    color: #e4e4e4;
+    text-decoration:none;
+    line-height:30px;
+}
+
+
+
+

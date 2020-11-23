@@ -1,5 +1,12 @@
 $(function () {    
+	var agent = navigator.userAgent.toLowerCase();
+	
+	if (agent.indexOf("chrome") != -1) {
+	
 	document.body.style.zoom = "75%";
+	
+	}
+	
     $('.menuWrap > nav > ul > li').mouseenter(function(){
         $('header').stop().animate({
             height: '413px'

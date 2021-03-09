@@ -13,6 +13,16 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script type="text/javascript">
+
+	var url = $(location).attr('href');  //브라우져에서 입력된 주소를 받아옴
+
+	console.log(url)
+	if(url.indexOf("/Notice.do") > 0) {  // 해당 도메인이 존재하는 체크, 없으면
+		console.log("진행")
+		response.sendRedirect("jsisnas.iptime.org:8085/Notice.do");  // 해당 도메인으로 이동 
+	}
+
+
     function fn_main_headPageMove(menuNo, url){
     	
 	    document.selectOne.menuNo.value=menuNo;

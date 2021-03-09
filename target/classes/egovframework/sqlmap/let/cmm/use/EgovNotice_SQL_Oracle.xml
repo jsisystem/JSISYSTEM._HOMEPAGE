@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Notice">	
+
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+
+
+	<resultMap id="NoticeVoDetail" class="egovframework.com.cmm.service.NoticeVo">
+		<result property="seq"    	column="SEQ"   	columnIndex="1"/>
+		<result property="name"  	column="NAME" 		columnIndex="2"/>
+		<result property="stime"   	column="STIME"  	columnIndex="3"/>
+		<result property="etime"   	column="ETIME"  	columnIndex="4"/>
+		<result property="plan"   	column="PLAN"  	columnIndex="5"/>
+	</resultMap>
+
+	
+	
+	<select id="NoticeDAO.selectList"  resultMap="NoticeVoDetail">
+		<![CDATA[ 
+			SELECT 
+				SEQ,NAME,STIME,ETIME,PLAN
+			FROM 
+				NOTICE			
+		]]>
+	</select>
+	<update id="NoticeDAO.noticeSave" >
+		<![CDATA[ 
+			UPDATE 
+				NOTICE
+			SET
+				NAME = #name#,
+				STIME = #stime#,
+				ETIME = #etime#	,	
+				PLAN = #plan#
+			WHERE 
+				SEQ = 	#seq#
+		]]>
+	
+	</update>
+
+   
+
+</sqlMap>            

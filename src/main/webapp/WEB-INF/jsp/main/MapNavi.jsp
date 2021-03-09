@@ -115,7 +115,7 @@
                        </div>
                        <div class="map_2">
                             <h4 class="subTit03">연구소</h4>
-                            <p class="adress">서울특별시 금천구 서부샛길 606 대성디폴리스지식산업센터 B동 1604호</p>
+                            <p class="adress">서울특별시 금천구 서부샛길 606 대성디폴리스지식산업센터 A동 911호</p>
                             <p class="tel">TEL. 02-861-9602</p>
                             <div class="map">
 								<!-- * 카카오맵 - 지도퍼가기 -->

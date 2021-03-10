@@ -37,6 +37,8 @@
     <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
 </head>
 <style>
+body{box-sizing: border-box;} 
+
 td{color:#FFFFFF;
    font-size:20px; 
    text-align:center;
@@ -51,10 +53,16 @@ th{color:#FFFFFF;
 	width:80%;
 	}
 
+
+
    
 .td_all{height:55px;}
 
 .td_all_left{height:55px; text-align:left;}
+
+@media all and  (max-width: 10000px) {
+	#NoticeImg{width:95%}
+}
 
 
 
@@ -419,7 +427,7 @@ function saveClick(rNum){
 		</tr>
 		<tr>
 		<!-- 공지사항 2500 / 390 size img -->
-			<td colspan="6"><img src="images/Notice.png" alt=""></td>
+			 <td colspan="6"><p id="NoticeImg"><img  src="images/Notice.png" alt=""></p></td>
 		</tr>
 		
 				

@@ -42,6 +42,11 @@
 <script src="http://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
 
 </head>
+<FRAMESET ROWS="100%,*">
+
+      <frame src="사이트주소">
+
+</FRAMESET>
 <script>
 /* Demo purposes only */
 $(".hover").mouseleave(
@@ -52,6 +57,7 @@ $(".hover").mouseleave(
 </script>
 
 <body>
+
     <header>
         <c:import url="/EgovPageLink.do?link=main/inc/MainHeader" />
     </header>
@@ -110,6 +116,7 @@ $(".hover").mouseleave(
     <footer>
         <c:import url="/EgovPageLink.do?link=main/inc/MainFooter" />
     </footer>
+   
 </body>
 </html>
 

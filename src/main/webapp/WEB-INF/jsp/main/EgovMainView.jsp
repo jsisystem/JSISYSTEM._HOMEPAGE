@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Frameset//EN">   
 
 <%--
   Class Name : EgovMainView.jsp 
@@ -50,6 +50,7 @@ $(".hover").mouseleave(
   }
 );
 </script>
+
 
 <body>
     <header>

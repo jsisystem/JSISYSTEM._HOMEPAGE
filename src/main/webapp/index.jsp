@@ -1,3 +1,4 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Frameset//EN">   
 <%--
   Class Name : index.jsp
   Description : 최초화면으로 메인화면으로 이동한다.(system)
@@ -16,4 +17,10 @@
 <%--
 <jsp:forward page="/cmm/main/mainPage.do"/>
 --%>
-<script type="text/javaScript">document.location.href="<c:url value='/cmm/main/mainPage.do'/>"</script> 
+<!-- <script type="text/javaScript">document.location.href="<c:url value='/cmm/main/mainPage.do'/>"</script> --> 
+<frameset rows="0,*" frameborder=NO border=0 framespacing=0>
+<frame scrolling=no noresize src="">
+<frame scrolling=yes src="/cmm/main/mainPage.do">
+<noframes>
+</noframes>
+</frameset>

@@ -20,7 +20,7 @@
 <!-- <script type="text/javaScript">document.location.href="<c:url value='/cmm/main/mainPage.do'/>"</script> --> 
 <frameset rows="0,*" frameborder=NO border=0 framespacing=0>
 <frame scrolling=no noresize src="">
-<frame scrolling=yes src="/cmm/main/mainPage.do">
+<frame scrolling=yes src="/cmm/main/mainPage.do"> 
 <noframes>
 </noframes>
 </frameset>

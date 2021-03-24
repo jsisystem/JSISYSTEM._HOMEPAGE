@@ -17,6 +17,7 @@
 <%--
 <jsp:forward page="/cmm/main/mainPage.do"/>
 --%>
+<<<<<<< HEAD
 <!-- <script type="text/javaScript">document.location.href="<c:url value='/cmm/main/mainPage.do'/>"</script> --> 
 <frameset rows="0,*" frameborder=NO border=0 framespacing=0>
 <frame scrolling=no noresize src="">
@@ -24,3 +25,7 @@
 <noframes>
 </noframes>
 </frameset>
+=======
+<script type="text/javaScript">document.location.href="<c:url value='/cmm/main/mainPage.do'/>"</script> 
+
+>>>>>>> branch 'master' of https://github.com/jsisystem/JSISYSTEM._HOMEPAGE.git

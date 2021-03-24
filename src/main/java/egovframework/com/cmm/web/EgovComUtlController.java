@@ -60,7 +60,11 @@ public class EgovComUtlController {
 		}
 		return link;
 	}
+<<<<<<< HEAD
 	@CrossOrigin
+=======
+	@CrossOrigin(origins = "www.jsisystem.com, jsisystem.com")
+>>>>>>> branch 'master' of https://github.com/jsisystem/JSISYSTEM._HOMEPAGE.git
 	@RequestMapping (value="/Notice.do", method=RequestMethod.GET)
 	public String Notice(){
 		return "/main/Notice";

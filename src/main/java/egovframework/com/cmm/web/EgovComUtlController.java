@@ -60,8 +60,6 @@ public class EgovComUtlController {
 		}
 		return link;
 	}
-
-
 	@CrossOrigin(origins = "www.jsisystem.com, jsisystem.com")
 
 	@RequestMapping (value="/Notice.do", method=RequestMethod.GET)

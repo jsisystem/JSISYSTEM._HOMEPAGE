@@ -59,9 +59,9 @@ th{color:#FFFFFF;
    
 .td_all_left{text-align:left; height:42px;}
 
-<<<<<<< HEAD
+
 body{background:#25383C;}
-=======
+
 .td_all_left{height:55px; text-align:left;}
 
 @media all and  (max-width: 10000px) {
@@ -69,7 +69,7 @@ body{background:#25383C;}
 }
 
 
->>>>>>> branch 'master' of https://github.com/jsisystem/JSISYSTEM._HOMEPAGE.git
+
 
 
 
@@ -432,11 +432,11 @@ function saveClick(rNum){
 		</tr>
 		<tr>
 		<!-- 공지사항 2500 / 390 size img -->
-<<<<<<< HEAD
+
 			<td colspan="6"><img src="images/Notice.png" alt="" style="width:100%;"></td>
-=======
-			 <td colspan="6"><p id="NoticeImg"><img  src="images/Notice.png" alt=""></p></td>
->>>>>>> branch 'master' of https://github.com/jsisystem/JSISYSTEM._HOMEPAGE.git
+
+			<!-- <td colspan="6"><p id="NoticeImg"><img  src="images/Notice.png" alt=""></p></td> -->
+
 		</tr>
 		
 				

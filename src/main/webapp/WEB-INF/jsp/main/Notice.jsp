@@ -40,6 +40,7 @@
 td{color:#FFFFFF;
    font-size:20px; 
    text-align:center;
+   border:1px solid;
    }
 
 th{color:#FFFFFF;
@@ -52,11 +53,9 @@ th{color:#FFFFFF;
 	}
 
    
-.td_all{height:55px;}
+.td_all_left{text-align:left; height:42px;}
 
-.td_all_left{height:55px; text-align:left;}
-
-
+body{background:#25383C;}
 
 
 
@@ -127,11 +126,11 @@ function nowdate(){
 	document.getElementById('nowDate').innerHTML = hour+":"+min+":"+sec+"  "+dayname[date];
 	
 	$("#divc").css('text-align', 'right');
-	var t = setTimeout(function(){nowdate()},1000);
+	 var t = setTimeout(function(){nowdate()},1000);
 	
 		var l = setTimeout(function(){
 			refrash()
-			},5000);
+			},10000);
 	
 	
 	
@@ -419,7 +418,7 @@ function saveClick(rNum){
 		</tr>
 		<tr>
 		<!-- 공지사항 2500 / 390 size img -->
-			<td colspan="6"><img src="images/Notice.png" alt=""></td>
+			<td colspan="6"><img src="images/Notice.png" alt="" style="width:100%;"></td>
 		</tr>
 		
 				

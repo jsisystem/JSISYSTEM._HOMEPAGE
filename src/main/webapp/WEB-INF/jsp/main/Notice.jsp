@@ -74,8 +74,19 @@ body{background:#25383C;}
 
 
 
+
+
 </style>
 <script>
+$(function () {    
+	var agent = navigator.userAgent.toLowerCase();
+	
+	if (agent.indexOf("chrome") != -1) {
+	
+	document.body.style.zoom = "72%";
+	
+	}
+})
 
 $('#nowDate').text(getToday());
 var flag = 0;
@@ -362,7 +373,7 @@ function saveClick(rNum){
 		
 		<tr>
 			<td class="td_all"><span id="row19_name"></span><button id="modifyBtn19" style="text-align:right; font-size: 10px;"onclick='modify(19)'>수정</button><button id="saveBtn19" class= 'saveBtn' style="text-align:right; font-size: 10px;"onclick='saveClick(19)'>저장</button></td>
-			<td id="row19_td1" class="td_all">12:00<span>~</span>15:00</td>
+			<td id="row19_td1" class="td_all"><span>~</span></td>
 			<td id="row19_td2" class="td_all_left"></td>
 			
 		
@@ -374,7 +385,7 @@ function saveClick(rNum){
 		
 		<tr>
 			<td class="td_all"><span id="row21_name"></span> <button id="modifyBtn21" style="text-align:right; font-size: 10px;"onclick='modify(21)'>수정</button><button id="saveBtn21" class= 'saveBtn' style="text-align:right; font-size: 10px;"onclick='saveClick(21)'>저장</button></td>
-			<td id="row21_td1" class="td_all">12:00<span>~</span>15:00</td>
+			<td id="row21_td1" class="td_all"><span>~</span></td>
 			<td id="row21_td2" class="td_all_left"></td>
 			
 		
@@ -408,7 +419,7 @@ function saveClick(rNum){
 		
 		</tr>
 		
-		<tr>
+		<!-- <tr>
 			<td class="td_all"><span id="row27_name"></span> <button id="modifyBtn27" style="text-align:right; font-size: 10px;"onclick='modify(27)'>수정</button><button id="saveBtn27" class= 'saveBtn' style="text-align:right; font-size: 10px;"onclick='saveClick(27)'>저장</button></td>
 			<td id="row27_td1" class="td_all"><span>~</span></td>
 			<td id="row27_td2" class="td_all_left"></td>
@@ -429,7 +440,7 @@ function saveClick(rNum){
 			<td id="row30_td1" class="td_all"><span>~</span></td>
 			<td id="row30_td2" class="td_all_left"></td>
 		
-		</tr>
+		</tr> -->
 		<tr>
 		<!-- 공지사항 2500 / 390 size img -->
 

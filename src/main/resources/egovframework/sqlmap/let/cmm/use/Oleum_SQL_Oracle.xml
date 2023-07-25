@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Oleum">	
+
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+
+
+	<resultMap id="OleumVoDetail" class="egovframework.com.cmm.service.OleumVo">
+		<result property="seq"    	column="SEQ"   		columnIndex="1"/>
+		<result property="eName"  	column="E_NAME" 	columnIndex="2"/>
+		<result property="kName"   	column="K_NAME"  	columnIndex="3"/>
+		<result property="picNum"   column="PIC_NUM"  	columnIndex="4"/>
+		<result property="coord1"   	column="COORD_1"  	columnIndex="5"/>
+		<result property="coord2"   	column="COORD_2"  	columnIndex="6"/>
+		<result property="coord3"   	column="COORD_3"  	columnIndex="7"/>
+		<result property="gubun"   		column="GUBUN"  	columnIndex="8"/>
+		<result property="linkTarget"   column="LINK_TARGET"  	columnIndex="9"/>
+		<result property="infoData"   	column="INFO_DATA"  	columnIndex="10"/>
+		<result property="viewCode"   	column="VIEW_CODE"  	columnIndex="11"/>
+	</resultMap>
+	
+	<resultMap id="OleumVoSimple" class="egovframework.com.cmm.service.OleumVo">
+		
+		<result property="eName"  	column="E_NAME" 	columnIndex="2"/>
+		<result property="kName"   	column="K_NAME"  	columnIndex="3"/>
+		
+	</resultMap>
+	
+	<resultMap id="PanoramaVo" class="egovframework.com.cmm.service.OleumReNewVo">
+		
+		<result property="eName"  	column="E_NAME" 	columnIndex="2"/>
+		<result property="kName"   	column="K_NAME"  	columnIndex="3"/>
+		<result property="picNum"  	column="PIC_NUM" 	columnIndex="4"/>
+		<result property="pitchData"  	column="PITCH_DATA" 	columnIndex="5"/>
+		<result property="yawData"  	column="YAW_DATA" 	columnIndex="6"/>
+		<result property="type"  	column="TYPE" 	columnIndex="7"/>
+		<result property="text"  	column="TEXT" 	columnIndex="8"/>
+		<result property="url"  	column="URL" 	columnIndex="9"/>
+		<result property="imagepath"  	column="IMAGEPATH" 	columnIndex="10"/>
+		<result property="xCoord"  	column="X_COORD" 	columnIndex="11"/>
+		<result property="yCoord"  	column="Y_COORD" 	columnIndex="12"/>
+		
+	</resultMap>
+	
+	
+	<select id="OleumDAO.selectList"  resultMap="OleumVoDetail">
+		<![CDATA[ 
+			SELECT 
+				*
+			FROM 
+				oleum_pano		
+			WHERE
+				E_NAME = #eName# AND GUBUN= #gubun# AND VIEW_CODE = 'AIRVIEW'
+			ORDER BY
+				PIC_NUM
+		]]>
+	</select>
+	<select id="OleumDAO.selectRoadList"  resultMap="OleumVoDetail">
+		<![CDATA[ 
+			SELECT 
+				*
+			FROM 
+				oleum_pano		
+			WHERE
+				E_NAME = #eName# AND GUBUN= #gubun# AND VIEW_CODE = 'ROADVIEW'
+			ORDER BY
+				PIC_NUM
+		]]>
+	</select>
+	<insert id="OleumDAO.coordInsert" >
+		
+		<![CDATA[ 
+			INSERT INTO 
+				oleum_pano (SEQ,E_NAME,K_NAME,PIC_NUM,COORD_1,COORD_2,COORD_3,GUBUN,LINK_TARGET,INFO_DATA)
+				VALUES(OLEUMSEQ.nextval,#eName#,#kName#,#picNum#,#coord1#,#coord2#,#coord3#,#gubun#,#linkTarget#,#infoData#)
+			
+		]]>
+	</insert>
+	
+	
+	<select id="OleumDAO.viewList" resultMap="OleumVoSimple">
+		<![CDATA[ 
+		
+		SELECT DISTINCT
+		
+			E_NAME,K_NAME
+			
+		FROM
+			oleum_pano		
+		WHERE
+			VIEW_CODE = #viewCode#
+		ORDER BY
+				K_NAME
+		]]>
+	</select>
+
+	<select id="OleumDAO.panoramaData" resultMap="PanoramaVo">
+		<![CDATA[ 
+		
+		SELECT
+				*
+		FROM 
+				TB_PANORAMA_RENEW
+		WHERE
+				E_NAME = #eName#	
+		]]>
+	</select>
+   
+
+</sqlMap>            

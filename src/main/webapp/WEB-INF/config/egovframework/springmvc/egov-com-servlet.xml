@@ -13,7 +13,6 @@
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
     </context:component-scan>
-
     <!-- 서블릿컨네이너상의 exception에 대한 오류 페이지를 연결하는 mvc 설정-->
    <!--  <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <property name="defaultErrorView" value="cmm/error/egovError"/>
@@ -32,6 +31,7 @@
 	    p:viewClass="org.springframework.web.servlet.view.JstlView"
 	    p:prefix="/WEB-INF/jsp/" p:suffix=".jsp"/>
 
+	
     <!-- 로그인 체크가 필요한 URL과 로그인 여부를 체크해준다 -->
     <mvc:interceptors>
         <mvc:interceptor>
@@ -48,5 +48,20 @@
     <mvc:view-controller path="/cmmn/validator.do" view-name="cmmn/validator"/>
     
     <mvc:annotation-driven/>
+    
+	<bean id="beanNameResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="0"/>
+    <bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+        <property name="contentType" value="application/json;charset=UTF-8"></property>
+    </bean>
+
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+	    <property name="alwaysUseFullPath" value="true">
+		</property>
+	</bean>
+	 
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+	    <property name="alwaysUseFullPath" value="true">
+		</property>
+	</bean>
 
 </beans>

@@ -79,7 +79,7 @@ $(".hover").mouseleave(
             <span onclick="javascript:fn_main_headPageMove('24','main/ResearchProject')">공간연구사업</span>
         </div>
         <div class="textBox02">
-            <p class="mainDesc03"><span>ㅣ주ㅣ제이시스</span>는 공간정보와 ICT전문기업으로 도내에서 시행하는 측량 및 공간정보 산업분야의 지하시설물 측량 뿐만 아니라<br>초경량 비행장치를 활용한 공간정보데이터 관련사업과 제주공가정보데이터 시스템 구축 등 다양한 서비스를 제공하고 있습니다. </p>
+            <p class="mainDesc03"><span>ㅣ주ㅣ제이시스</span>는 공간정보와 ICT전문기업으로 도내에서 시행하는 측량 및 공간정보 산업분야의 지하시설물 측량 뿐만 아니라<br>초경량 비행장치를 활용한 공간정보데이터 관련사업과 제주공간정보데이터 시스템 구축 등 다양한 서비스를 제공하고 있습니다. </p>
         </div>
         <div class="mainContentBox">
             <div>

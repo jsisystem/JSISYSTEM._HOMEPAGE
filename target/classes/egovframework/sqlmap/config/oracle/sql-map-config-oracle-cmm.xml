@@ -6,4 +6,7 @@
 	<sqlMap resource="egovframework/sqlmap/let/cmm/use/EgovCmmUse_SQL_Oracle.xml"/>		
 	<sqlMap resource="egovframework/sqlmap/let/cmm/fms/EgovFile_SQL_Oracle.xml"/>
 	<sqlMap resource="egovframework/sqlmap/let/cmm/use/EgovNotice_SQL_Oracle.xml"/>			
+	<sqlMap resource="egovframework/sqlmap/let/cmm/use/Oleum_SQL_Oracle.xml"/>
+	<sqlMap resource="egovframework/sqlmap/let/cmm/use/OpenApi_SQL_Oracle.xml"/>
+	<sqlMap resource="egovframework/sqlmap/let/cmm/use/RoadViewOpenApi_SQL_Oracle.xml"/>
 </sqlMapConfig>

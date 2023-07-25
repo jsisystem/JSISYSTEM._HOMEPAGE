@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="OpenApi">	
+
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	
+	
+	<resultMap id="OleumVoDetail" class="egovframework.com.cmm.service.ResultSummary">
+		<result property="oleumKname"   column="OLEUM_KNAME"   		columnIndex="1"/>
+		<result property="oleumEname"  	column="OLEUM_ENAME" 	columnIndex="2"/>
+		<result property="oleumAddr"   	column="OLEUM_ADDR"  	columnIndex="3"/>
+		<result property="oleumAltitu"  column="OLEUM_ALTITU"  	columnIndex="4"/>
+		<result property="x"   			column="X"  	columnIndex="5"/>
+		<result property="y"  		 	column="Y"  	columnIndex="6"/>
+		<result property="explan"   	column="EXPLAN"  	columnIndex="7"/>
+		<result property="imgPath"   	column="IMG_PATH"  	columnIndex="8"/>
+	</resultMap>	
+	
+	
+	<resultMap id="OleumStiching" class="egovframework.com.cmm.service.ResultSummarys">
+		<result property="oleumKname"   column="OLEUM_KNAME"   		columnIndex="1"/>
+		<result property="oleumEname"  	column="OLEUM_ENAME" 		columnIndex="2"/>
+		<result property="imgPath"   	column="IMG_PATH"  			columnIndex="3"/>
+	</resultMap>
+	
+	
+	<resultMap id="OleumSearch" class="egovframework.com.cmm.service.ResultSummarySearch">
+		<result property="count"   column="COUNT(*)"   		columnIndex="1"/>
+		
+		
+	</resultMap>
+	
+	<select id="OpenApiDAO.getOleumADetailList" resultMap="OleumVoDetail">
+			
+			SELECT *
+			FROM
+			    (
+			        SELECT 
+			            ROWNUM AS RNUM, T1.*
+			        FROM
+			            OPENAPI_O_AIR_IMG T1
+		
+			        <isNotEmpty property="page">    
+			        	<isNotEmpty property="pageSize">
+			        		WHERE
+			        		<![CDATA[ 
+			            		ROWNUM <= #page#*#pageSize#
+			        		]]> 
+			        	</isNotEmpty>
+			        	
+			        	<isEmpty property="pageSize">    
+			        		WHERE
+			        		<![CDATA[ 
+			            		ROWNUM <= #page#*10
+			        		]]>
+			        	</isEmpty>
+			        	
+			      
+			        </isNotEmpty>
+			        
+			         <isEmpty property="page">    
+			        	 <isNotEmpty property="pageSize"> 
+					        WHERE
+					        <![CDATA[ 
+					            ROWNUM <= 1*#pageSize#
+					        ]]>
+					     </isNotEmpty>
+				     </isEmpty>
+		
+			        ORDER BY 
+						OLEUM_ENAME	
+			    )
+		
+			<isNotEmpty property="page">  
+			
+			    		<isNotEmpty property="pageSize">
+			        		WHERE
+							<![CDATA[ 
+			   					#page#*#pageSize#-(#pageSize#-1) <= RNUM
+			    			]]>
+			        	</isNotEmpty>
+			        	
+			        	<isEmpty property="pageSize">    
+			        		WHERE
+			        		<![CDATA[ 
+			            		#page#*10-9 <= RNUM
+			        		]]>
+			        	</isEmpty>
+			</isNotEmpty>
+			<isEmpty property="page">  
+				<isNotEmpty property="pageSize">  
+				WHERE
+					<![CDATA[ 
+				    1*#pageSize#-(#pageSize#-1) <= RNUM
+				    ]]>
+				</isNotEmpty>
+			</isEmpty>
+
+	</select>
+	<select id="OpenApiDAO.getOleumADetailListCount" resultMap="OleumSearch">
+		<![CDATA[ 
+			SELECT 
+				COUNT(*)
+			FROM 
+				OPENAPI_O_AIR_IMG		
+			
+		]]>
+	</select>
+	
+	
+	
+	<select id="OpenApiDAO.getOleumRDetailList" resultMap="OleumVoDetail">
+		SELECT *
+			FROM
+			    (
+			        SELECT 
+			            ROWNUM AS RNUM, T1.*
+			        FROM
+			            OPENAPI_O_ROAD_IMG T1
+		
+			        <isNotEmpty property="page">    
+			        WHERE
+			        <![CDATA[ 
+			            ROWNUM <= #page#*10
+			        ]]>
+			        </isNotEmpty>
+		
+			        ORDER BY 
+						OLEUM_ENAME	
+			    )
+		
+			<isNotEmpty property="page">  
+			WHERE
+				<![CDATA[ 
+			    #page#*10-9 <= RNUM
+			    ]]>
+			</isNotEmpty>
+	</select>
+
+	<select id="OpenApiDAO.getOleumRDetailListCount" resultMap="OleumSearch">
+		<![CDATA[ 
+			SELECT 
+				COUNT(*)
+			FROM 
+				OPENAPI_O_ROAD_IMG		
+			
+		]]>
+	</select>
+	
+	
+	<select id="OpenApiDAO.getOleumAStitchingImg" resultMap="OleumStiching">
+		SELECT *
+			FROM
+			    (
+			        SELECT 
+			            ROWNUM AS RNUM, T1.*
+			        FROM
+			             (SELECT 
+			             	* 
+			             FROM 
+			             	OPENAPI_S_AIR_IMG 
+			             WHERE 
+			             	1=1 
+			             	<isNotEmpty property="ename">  
+			             	AND OLEUM_ENAME = #ename#
+			             	</isNotEmpty>
+					         ) T1		
+			        WHERE
+			        	1=1
+			        <isNotEmpty property="page">  
+			        <![CDATA[ 
+			           	AND ROWNUM <= #page#*10
+			        ]]>
+			        </isNotEmpty>
+					
+					
+			        ORDER BY 
+						OLEUM_ENAME	
+			    )
+		
+			<isNotEmpty property="page">  
+			WHERE
+				<![CDATA[ 
+			    #page#*10-9 <= RNUM
+			    ]]>
+			</isNotEmpty>
+	</select>
+	
+	<select id="OpenApiDAO.getOleumAStitchingImgCount" resultMap="OleumSearch">
+		<![CDATA[ 
+			SELECT 
+				COUNT(*)
+			FROM 
+				OPENAPI_S_AIR_IMG		
+			
+		]]>
+	</select>
+	
+	
+	
+	<select id="OpenApiDAO.getOleumRStitchingImg"  resultMap="OleumStiching">
+		SELECT *
+			FROM
+			    (
+			        SELECT 
+			            ROWNUM AS RNUM, T1.*
+			        FROM
+			             (SELECT 
+			             	* 
+			             FROM 
+			             	OPENAPI_S_ROAD_IMG 
+			             WHERE 
+			             	1=1 
+			             	<isNotEmpty property="ename">  
+			             	AND OLEUM_ENAME = #ename#	
+			             	</isNotEmpty>
+					         ) T1	
+			        WHERE
+			        	1=1
+			        <isNotEmpty property="page">  
+			        <![CDATA[ 
+			           	AND ROWNUM <= #page#*10
+			        ]]>
+			        </isNotEmpty>
+					
+					
+			        ORDER BY 
+						OLEUM_ENAME	
+			    )
+		
+			<isNotEmpty property="page">  
+			WHERE
+				<![CDATA[ 
+			    #page#*10-9 <= RNUM
+			    ]]>
+			</isNotEmpty>
+	</select>
+	
+	
+	<select id="OpenApiDAO.getOleumRStitchingImgCount" resultMap="OleumSearch">
+		<![CDATA[ 
+			SELECT 
+				COUNT(*)
+			FROM 
+				OPENAPI_S_ROAD_IMG
+		]]>
+	</select>
+</sqlMap>            

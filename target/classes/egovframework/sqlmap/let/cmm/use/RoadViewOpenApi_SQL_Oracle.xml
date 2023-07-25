@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="RoadeViewOpenApi">	
+
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	
+	
+	<resultMap id="RoadViewList" class="egovframework.com.cmm.service.RoadListSummary">
+		<result property="seq" 				column="SEQ"  	 			columnIndex="1"/>
+		<result property="touristNm"  		column="TOURIST_NM"   		columnIndex="2"/>
+		<result property="touristEn"  		column="TOURIST_EN" 		columnIndex="3"/>
+		<result property="touristAddr"   	column="TOURIST_ADDR"  		columnIndex="4"/>
+		<result property="touristTel"  		column="TOURIST_TEL"  		columnIndex="5"/>
+		<result property="toristDtoil"   	column="TOURIST_DTOIL"  	columnIndex="6"/>
+		<result property="toruistDpar"  	column="TOURIST_DPAR"  		columnIndex="7"/>
+		<result property="touristLent"   	column="TOURIST_LNET"  		columnIndex="8"/>
+		<result property="touristNursing"   column="TOURIST_NURSING"  	columnIndex="9"/>
+		<result property="touristRest"   	column="TOURIST_REST"  		columnIndex="10"/>
+
+	</resultMap>
+	
+	<resultMap id="RoadViewMeta" class="egovframework.com.cmm.service.RoadMetaSummary">
+		<result property="touristNm"  		column="TOURIST_NM"   		columnIndex="1"/>
+		<result property="touristEn"  		column="TOURIST_EN" 		columnIndex="2"/>
+		<result property="imgFileNm"   		column="IMG_FILE_NM"  		columnIndex="3"/>
+		<result property="imgMkDate"   		column="IMG_MK_DATE"  		columnIndex="4"/>
+		<result property="imgMkTime"   		column="IMG_MK_TIME"  		columnIndex="5"/>
+		<result property="lon"   			column="LON"  				columnIndex="6"/>
+		<result property="lat"   			column="LAT"  				columnIndex="7"/>
+		<result property="altit"   			column="ALTIT"  			columnIndex="8"/>
+		<result property="resolution"   	column="RESOLUTION"  		columnIndex="9"/>
+	</resultMap>
+	
+	<resultMap id="RoadViewImg" class="egovframework.com.cmm.service.RoadImgSummary">
+		<result property="seq" 				column="SEQ"  	 			columnIndex="1"/>
+		<result property="touristNm"  		column="TOURIST_NM"   		columnIndex="2"/>
+		<result property="touristEn"  		column="TOURIST_EN" 		columnIndex="3"/>
+		<result property="imgFileNm"   		column="IMG_FILE_NM"  		columnIndex="4"/>
+		<result property="touristImgPath"	column="TOURIST_NURSING"  	columnIndex="5"/>
+	</resultMap>
+	
+	
+	<resultMap id="OleumSearch" class="egovframework.com.cmm.service.ResultSummarySearch">
+		<result property="count"   column="COUNT(*)"   		columnIndex="1"/>
+		
+		
+	</resultMap>
+	
+	<select id="RoadViewOpenApiDAO.getJejuTouristList" resultMap="RoadViewList"	remapResults="true">
+			
+			SELECT *
+			FROM
+			    (
+			        SELECT 
+			            ROWNUM AS RNUM, T1.*
+			        FROM
+			            TB_TOURIST_ATTC_LIST T1
+		
+			        <isNotEmpty property="page">    
+			        WHERE
+			        <![CDATA[ 
+			            ROWNUM <= #page#*10
+			        ]]>
+			        </isNotEmpty>
+		
+			        ORDER BY 
+						TOURIST_EN	
+			    )
+		
+			<isNotEmpty property="page">  
+			WHERE
+				<![CDATA[ 
+			    #page#*10-9 <= RNUM
+			    ]]>
+			</isNotEmpty>
+
+	</select>
+	
+	<select id="RoadViewOpenApiDAO.getJejuTouristMeta" resultMap="RoadViewMeta"	remapResults="true">
+			
+			SELECT *
+			FROM
+			    (
+			        SELECT 
+			            ROWNUM AS RNUM, T1.*
+			        FROM
+			            TB_TOURIST_METADATA T1
+		
+			        <isNotEmpty property="page">    
+			        WHERE
+			        <![CDATA[ 
+			            ROWNUM <= #page#*10
+			        ]]>
+			        </isNotEmpty>
+		
+			        ORDER BY 
+						TOURIST_EN	
+			    )
+		
+			<isNotEmpty property="page">  
+			WHERE
+				<![CDATA[ 
+			    #page#*10-9 <= RNUM
+			    ]]>
+			</isNotEmpty>
+
+	</select>
+	
+	<select id="RoadViewOpenApiDAO.getJejuTouristIMG" resultMap="RoadViewMeta"	remapResults="true">
+			
+			SELECT *
+			FROM
+			    (
+			        SELECT 
+			            ROWNUM AS RNUM, T1.*
+			        FROM
+			            TB_TOURIST_IMG T1
+		
+			        <isNotEmpty property="page">    
+			        WHERE
+			        <![CDATA[ 
+			            ROWNUM <= #page#*10
+			        ]]>
+			        </isNotEmpty>
+		
+			        ORDER BY 
+						TOURIST_EN	
+			    )
+		
+			<isNotEmpty property="page">  
+			WHERE
+				<![CDATA[ 
+			    #page#*10-9 <= RNUM
+			    ]]>
+			</isNotEmpty>
+
+	</select>
+
+	
+</sqlMap>            

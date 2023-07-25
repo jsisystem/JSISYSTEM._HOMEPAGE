@@ -3,6 +3,8 @@
 		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+		 
+    
 	<display-name>egovframework.sht</display-name>
 	<filter>
         <filter-name>encodingFilter</filter-name>
@@ -16,10 +18,11 @@
         <filter-name>encodingFilter</filter-name>
         <url-pattern>*.do</url-pattern>
     </filter-mapping>
-      <filter-mapping>
-    <filter-name>encodingFilter</filter-name>
-    <url-pattern>*.json</url-pattern>
-  </filter-mapping>
+    <filter-mapping>
+    	<filter-name>encodingFilter</filter-name>
+    	<url-pattern>*.json</url-pattern>
+    </filter-mapping>
+    
     <!-- 템플릿 소스에서는 아래의 필터사용 대신 JSP 출력시 <c:out> 태그를 사용하는 것을 기본정책으로 한다  -->
     <!-- egovframework.rte.ptl.mvc.filter.HTMLTagFilter egovframework.com.cmm.filter.HTMLTagFilter-->    
     <!--
@@ -43,7 +46,9 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
+  	
 	<servlet>
+		
 		<servlet-name>action</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
@@ -52,14 +57,20 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	
 	<servlet-mapping>
 		<servlet-name>action</servlet-name>
 		<url-pattern>*.do</url-pattern>
+		<url-pattern>/rest/*</url-pattern>
+		
 	</servlet-mapping>
 	<servlet-mapping>
 	    <servlet-name>action</servlet-name>
 	    <url-pattern>*.json</url-pattern>
   	</servlet-mapping>
+  
+  	
+	
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
@@ -70,7 +81,7 @@
 	<session-config>
         <session-timeout>600</session-timeout>
     </session-config>
-    
+   
 	<error-page>
         <exception-type>java.lang.Throwable</exception-type>
         <location>/common/error.jsp</location>
@@ -83,5 +94,6 @@
         <error-code>500</error-code>
         <location>/common/error.jsp</location>
     </error-page>
-    
+     <!-- easycompnay라는 웹어플리케이션의 웹요청을 DispatcherServlet이 처리한다.-->
+        
 </web-app>

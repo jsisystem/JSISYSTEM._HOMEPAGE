@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 /**
  * 공통유틸리티성 작업을 위한 Controller 클래스
@@ -66,6 +67,42 @@ public class EgovComUtlController {
 	public String Notice(){
 		return "/main/Notice";
 	}
+	
+	@RequestMapping (value="/Panorama.do", method=RequestMethod.GET)
+	public String Panorama(String eName,HttpSession session){
+		session.setAttribute("eName",eName);
+		System.out.println(eName);
+		return "/main/Panorama";
+	}
+	@RequestMapping (value="/PanoramaRenew.do", method=RequestMethod.GET)
+	public String PanoramaRenew(String eName,HttpSession session){
+		session.setAttribute("eName",eName);
+		System.out.println(eName);
+		return "/main/Panorama_Renew";
+	}
+	@RequestMapping (value="/PanoramaRenewtest.do", method=RequestMethod.GET)
+	public String PanoramaRenewtest(String eName,HttpSession session){
+		session.setAttribute("eName",eName);
+		System.out.println(eName);
+		return "/main/Panorama_Renew20220111";
+	}
+
+	@RequestMapping (value="/PanoramaRoad.do", method=RequestMethod.GET)
+	public String PanoramaRoad(String eName,HttpSession session){
+		session.setAttribute("eName",eName);
+		System.out.println(eName);
+		return "/main/PanoramaRoad";
+	}
+
+	@RequestMapping (value="/PanoramaList_boot.do", method=RequestMethod.GET)
+	public String PanoramaListboot(){
+		return "/main/PanoramaList_boot";
+	}
+	
+	@RequestMapping (value="/openlayer.do", method=RequestMethod.GET)
+	public String Openlayer(){
+		return "/main/mapView";
+	}
 
     /**
 	 * JSP 호출작업만 처리하는 공통 함수
@@ -79,6 +116,7 @@ public class EgovComUtlController {
 		}
 		return link;
 	}
+
 	
     /**
 	 * validation rule dynamic java script

@@ -115,7 +115,7 @@
                                 <ul class="itemList hAuto">
                                     <li>행정업무 시스템 구축</li>
                                 </ul>
-                                <p class="itemDesc">위법항법 사수탬 (GNSS)을 도입 · 활용한 행정정보 및 위치정보서비스 품질 및 만족도 향상을 위한 체계적인 자율관리 교통 관제 시스템 구축</p>
+                                <p class="itemDesc">위법항법 시스탬 (GNSS)을 도입 · 활용한 행정정보 및 위치정보서비스 품질 및 만족도 향상을 위한 체계적인 자율관리 교통 관제 시스템 구축</p>
                             </div>
                         </div>
                         <div class="item hAuto">

@@ -48,8 +48,7 @@ public class RoadViewOpenApiController {
 			e.printStackTrace();
 			
 			modelAndView.addObject("resultCode","500");
-			modelAndView.addObject("reulstMsg","Failed");
-			
+			modelAndView.addObject("reulstMsg","Failed");		
 			
 		}
 		
